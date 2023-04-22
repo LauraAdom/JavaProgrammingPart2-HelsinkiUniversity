@@ -1,4 +1,4 @@
-package Part9.Inheritance.Exercise5;
+package Part9.Interfaces.Exercise5;
 
 public class TripleTacoBox implements TacoBox {
 
