@@ -8,9 +8,7 @@ public class Exercise1 {
     ArrayList<String> numbers = new ArrayList<>();
     Scanner scanner = new Scanner(System.in);
 
-        while(scanner.hasNextLine())
-
-    {
+    while(scanner.hasNextLine()) {
 
         String input = scanner.nextLine();
 
@@ -26,5 +24,5 @@ public class Exercise1 {
             .average()
             .getAsDouble();
 
-        System.out.println("average of the numbers: " + avg.get());
+        System.out.println("average of the numbers: "+avg.get());
 }
