@@ -5,43 +5,46 @@ import java.util.Scanner;
 
 public class Exercise2 {
 
-    ArrayList<String> numbers = new ArrayList<>();
-    Scanner scanner = new Scanner(System.in);
+    public static void main(String[] args) {
 
-    while(scanner.hasNextLine()) {
+        ArrayList<String> numbers = new ArrayList<>();
+        Scanner scanner = new Scanner(System.in);
 
-        String input = scanner.nextLine();
+        while (scanner.hasNextLine()) {
 
-        if (input.equalsIgnoreCase("end")) {
-            break;
+            String input = scanner.nextLine();
+
+            if (input.equalsIgnoreCase("end")) {
+                break;
+            }
+
+            numbers.add(input);
         }
 
-        numbers.add(input);
-    }
+        System.out.println("Print the average of the negative numbers or the positive numbers? (n/p)");
 
-    System.out.println("Print the average of the negative numbers or the positive numbers? (n/p)");
+        String filterDecision = scanner.nextLine();
 
-    String filterDecision = scanner.nextLine();
+        if (filterDecision.equals("n")) {
 
-    if(filterDecision.equals("n")) {
+            Double avg = numbers.stream()
+                    .mapToInt(numb -> Integer.valueOf(numb))
+                    .filter(number -> number < 0)
+                    .average()
+                    .getAsDouble();
 
-        Double avg = numbers.stream()
-                .mapToInt(numb -> Integer.valueOf(numb))
-                .filter(number -> number < 0)
-                .average()
-                .getAsDouble();
+            System.out.println("Average of the negative numbers: " + avg);
 
-        System.out.println("Average of the negative numbers: " + avg);
+        } else {
 
-    } else {
+            Double avg = numbers.stream()
+                    .mapToInt(numb -> Integer.valueOf(numb))
+                    .filter(number -> number > 0)
+                    .average()
+                    .getAsDouble();
 
-        Double avg = numbers.stream()
-                .mapToInt(numb -> Integer.valueOf(numb))
-                .filter(number -> number > 0)
-                .average()
-                .getAsDouble();
-
-        System.out.println("Average of the positive numbers: " + avg);
+            System.out.println("Average of the positive numbers: " + avg);
+        }
     }
 }
 
