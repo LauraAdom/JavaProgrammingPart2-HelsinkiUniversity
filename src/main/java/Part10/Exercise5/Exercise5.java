@@ -5,21 +5,24 @@ import java.util.Scanner;
 
 public class Exercise5 {
 
-    ArrayList<String> inputs = new ArrayList<>();
+    public static void main(String[] args) {
 
-    Scanner scanner = new Scanner(System.in);
+        ArrayList<String> inputs = new ArrayList<>();
 
-    while(true) {
+        Scanner scanner = new Scanner(System.in);
 
-        String input = scanner.nextLine();
+        while (true) {
 
-        if (input.equals("")) {
-            break;
+            String input = scanner.nextLine();
+
+            if (input.equals("")) {
+                break;
+            }
+
+            inputs.add(input);
         }
 
-        inputs.add(input);
+        inputs.stream()
+                .forEach(input -> System.out.println(input));
     }
-
-    inputs.stream()
-            .forEach(input ->System.out.println(input));
 }
